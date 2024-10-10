@@ -2,7 +2,7 @@
   <v-card>
     <v-toolbar color="orange" elevation="4">
       <v-btn icon>
-        <img src="public/Migros-logo.png" alt="My Logo" class="custom-logo">
+        <img src="https://github.com/serhat-baydar/copilot-metrics-viewer/public/Migros-logo.png" alt="My Logo" class="custom-logo">
       </v-btn>
 
       <v-toolbar-title class="toolbar-title">Migros Copilot Metrics Viewer | {{ capitalizedItemName }} : {{ displayedViewName }}  {{ teamName }}
@@ -228,5 +228,8 @@ export default defineComponent({
 .error-message {
   color: red;
 }
-
+.custom-logo {
+  width: 24px; /* İkon boyutunu ayarlayın */
+  height: 24px; /* İkon boyutunu ayarlayın */
+}
 </style>

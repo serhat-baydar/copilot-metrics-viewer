@@ -1,0 +1,33 @@
+name: Build and deploy container app to Azure Web App - copilot-metrics-viewer
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Build and Push Docker Image
+      run: |
+        docker build -t ghcr.io/serhat-baydar/copilot-viewer:latest .
+        docker push ghcr.io/serhat-baydar/copilot-viewer:latest
+
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: 'gitmetrics'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile }}
+        images: 'ghcr.io/serhat-baydar/copilot-viewer:latest'
+        package: ''
+ 

@@ -1,11 +1,11 @@
 <template>
   <v-card>
-    <v-toolbar color="indigo" elevation="4">
+    <v-toolbar color="orange" elevation="4">
       <v-btn icon>
         <v-icon>mdi-github</v-icon>
       </v-btn>
 
-      <v-toolbar-title class="toolbar-title">Copilot Metrics Viewer | {{ capitalizedItemName }} : {{ displayedViewName }}  {{ teamName }}
+      <v-toolbar-title class="toolbar-title">Migros Copilot Metrics Viewer | {{ capitalizedItemName }} : {{ displayedViewName }}  {{ teamName }}
          
       </v-toolbar-title>
       <h2 class="error-message"> {{ mockedDataMessage }} </h2>
@@ -28,7 +28,7 @@
     <div v-if="!apiError">
       <div v-if="itemName === 'invalid'" class="error-message">Invalid Scope in .env file. Please check the value of VUE_APP_SCOPE.</div>
       <div v-else>
-        <v-progress-linear v-if="!metricsReady" indeterminate color="indigo"></v-progress-linear>
+        <v-progress-linear v-if="!metricsReady" indeterminate color="orange"></v-progress-linear>
         <v-window v-if="metricsReady" v-model="tab">
           <v-window-item v-for="item in tabItems" :key="item" :value="item">
             <v-card flat>

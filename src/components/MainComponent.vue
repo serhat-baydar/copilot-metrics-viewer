@@ -2,7 +2,7 @@
   <v-card>
     <v-toolbar color="orange" elevation="4">
       <v-btn icon>
-        <v-icon>mdi-github</v-icon>
+        <img src="path/to/your/logo.png" alt="My Logo" class="custom-logo">
       </v-btn>
 
       <v-toolbar-title class="toolbar-title">Migros Copilot Metrics Viewer | {{ capitalizedItemName }} : {{ displayedViewName }}  {{ teamName }}
